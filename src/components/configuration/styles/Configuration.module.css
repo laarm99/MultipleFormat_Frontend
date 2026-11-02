@@ -2,3 +2,45 @@
     color: rgba(0, 0, 0, 0.45);
     background: #fafafa;
 }
+
+.wideCard:global(.ant-card) {
+    width: 100%;
+    max-width: 100%;
+}
+
+.search {
+    max-width: 480px;
+    margin-bottom: 16px;
+}
+
+.search :global(.ant-input-affix-wrapper) {
+    min-height: 44px;
+    border-radius: 14px !important;
+    background: rgba(255, 255, 255, 0.7) !important;
+    border: 1px solid rgba(22, 40, 82, 0.1) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.search :global(.ant-input-affix-wrapper:hover),
+.search :global(.ant-input-affix-wrapper-focused) {
+    border-color: #fb8421 !important;
+}
+
+.search :global(.ant-input-affix-wrapper) :global(.ant-input) {
+    height: auto !important;
+    min-height: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+}
+
+.search :global(.ant-input-prefix) {
+    color: #162852;
+    margin-inline-end: 8px;
+}
+
+.tableWrap :global(.ant-table-cell) {
+    white-space: normal;
+    word-break: normal;
+}

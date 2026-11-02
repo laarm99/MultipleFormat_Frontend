@@ -62,8 +62,7 @@
 .modernCard :global(.ant-input),
 .modernCard :global(.ant-picker),
 .modernCard :global(.ant-select-selector),
-.modernCard :global(.ant-input-number),
-.modernCard :global(.ant-input-number-input) {
+.modernCard :global(.ant-input-number) {
   height: 46px !important;
   border-radius: 16px !important;
 
@@ -73,6 +72,15 @@
   border: 1px solid rgba(22, 40, 82, 0.1) !important;
 
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.modernCard :global(.ant-input-number .ant-input-number-input) {
+  height: 44px !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  backdrop-filter: none;
+  border-radius: 0 !important;
 }
 
 .cardHeader h2 {

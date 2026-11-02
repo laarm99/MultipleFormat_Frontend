@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import { Login } from "./api/LoginApi";
 import { AuthContext } from "./AuthProvider";
 import AppButton from "../../components/common/buttons";
+import LanguageSelector from "../../components/LanguajeSelector/LanguajeSelector";
 import styles from "./styles/LoginPage.module.css";
 import appLogo from "../../assets/img/logo.png";
 
@@ -106,6 +107,10 @@ export default function LoginPage() {
 
   return (
     <div className={styles.mainBackground}>
+      <div className={styles.loginLanguage}>
+        <LanguageSelector />
+      </div>
+
       <Card className={styles.contentDesign}>
         {loginError && (
           <Alert
@@ -144,6 +149,10 @@ export default function LoginPage() {
           </Form.Item>
         </Form>
       </Card>
+
+      <footer className={styles.loginFooter}>
+        {t("layoutapp.footer", { year: new Date().getFullYear() })}
+      </footer>
     </div>
   );
 }

@@ -204,6 +204,24 @@ body {
   margin-bottom: 20px;
 }
 
+.loginLanguage {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  z-index: 2;
+}
+
+.loginFooter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 24px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 12px;
+}
+
 @keyframes waveOrange {
 
   0%,

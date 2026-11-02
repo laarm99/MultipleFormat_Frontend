@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, Card, Form, Input, Modal, Popconfirm, Space, Tag, Tooltip } from "antd";
-import { EditOutlined, StopOutlined, CheckCircleOutlined, TeamOutlined } from "@ant-design/icons";
+import { EditOutlined, StopOutlined, CheckCircleOutlined, SearchOutlined, TeamOutlined } from "@ant-design/icons";
 import { useTranslation } from "react-i18next";
 
 import DefaultTable from "../../common/defaultTable";
@@ -9,6 +9,7 @@ import styles from "../styles/Configuration.module.css";
 import useConfigurationList from "../hooks/useConfigurationList";
 import { getSupervisors, setSupervisorStatus, updateSupervisor } from "../api/ConfigurationApi";
 import { notifySuccess } from "../../../utils/messages";
+import { employeeInfoColumns, filterBySearch } from "../utils/employeeColumns";
 
 export default function SupervisorsGrid() {
     const { t } = useTranslation();
@@ -16,6 +17,7 @@ export default function SupervisorsGrid() {
     const { dataSource, loading, processingId, mutate } = useConfigurationList(getSupervisors);
 
     const [editing, setEditing] = useState(null);
+    const [search, setSearch] = useState("");
     const processing = processingId !== null;
 
     const openEdit = (record) => {
@@ -52,8 +54,7 @@ export default function SupervisorsGrid() {
     };
 
     const columns = [
-        { title: t("configuration.supervisors.fullName"), dataIndex: "fullName", key: "fullName" },
-        { title: t("configuration.netkey"), dataIndex: "domainUserName", key: "domainUserName" },
+        ...employeeInfoColumns(t, t("configuration.users.fullName")),
         { title: t("configuration.email"), dataIndex: "email", key: "email", render: (v) => v || "-" },
         {
             title: t("configuration.status"),
@@ -122,15 +123,24 @@ export default function SupervisorsGrid() {
                     </h2>
                 </div>
             }
-            className={formStyles.modernCard}
+            className={`${formStyles.modernCard} ${styles.wideCard}`}
         >
+            <div className={styles.search}>
+                <Input
+                    allowClear
+                    prefix={<SearchOutlined />}
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    placeholder={t("configuration.search")}
+                />
+            </div>
             <DefaultTable
                 columns={columns}
-                data={dataSource}
+                data={filterBySearch(dataSource, search)}
                 loading={loading}
                 rowKey="id"
+                size="small"
                 rowClassName={(record) => (record.isActive ? "" : styles.inactiveRow)}
-                scroll={{ x: "max-content" }}
             />
 
             <Modal
