@@ -7,11 +7,8 @@ import { get } from "../../../services/backend-requests";
 //   plant?, shift?, department?, supervisorName?, area?
 // }] }. Configure the endpoint after the backend confirms its route.
 export async function getManagedEmployees() {
-    const endpoint = import.meta.env.VITE_MANAGED_EMPLOYEES_ENDPOINT;
-    if (!endpoint) {
-        throw new Error("VITE_MANAGED_EMPLOYEES_ENDPOINT no está configurado.");
-    }
-
+    const endpoint = import.meta.env.VITE_MANAGED_EMPLOYEES_ENDPOINT
+        || "/changes-department-or-shift/supervised-employees";
     const response = await get(endpoint);
     const result = response.data;
 

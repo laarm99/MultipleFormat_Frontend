@@ -15,7 +15,6 @@
     "axios": "^1.18.1",
     "dayjs": "^1.11.21",
     "i18next": "^26.3.6",
-    "next-intl": "^4.13.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-error-boundary": "^6.1.2",
