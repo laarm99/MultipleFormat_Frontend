@@ -2,6 +2,8 @@ import { Menu } from "antd";
 import Sider from "antd/es/layout/Sider";
 import { useState } from "react";
 import style from "../layout/styles/LayoutSider.module.css"
+import logoHorizontal from "../assets/img/logo-horizontal-dark.png";
+import logoSymbol from "../assets/img/logo-symbol-dark.png";
 
 export default function LayoutSider({ moduleItems }) {    
     const [collapsed, setCollapsed] = useState(true);
@@ -17,7 +19,14 @@ export default function LayoutSider({ moduleItems }) {
                 onMouseEnter={() => setCollapsed(false)}
                 onMouseLeave={() => setCollapsed(true)}               
             >
-                <div className="demo-logo-vertical">
+                <div className={style.siderLogo}>
+                    <img
+                        src={collapsed ? logoSymbol : logoHorizontal}
+                        alt="MultiFormat"
+                        className={collapsed ? style.logoSymbol : style.logoHorizontal}
+                    />
+                </div>
+                <div>
                     <Menu
                         theme="dark"
                         mode="inline"

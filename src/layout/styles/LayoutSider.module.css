@@ -20,6 +20,24 @@
 
 }
 
+.siderLogo {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.logoHorizontal {
+    width: 200px;
+    height: auto;
+}
+
+.logoSymbol {
+    width: 38px;
+    height: auto;
+}
+
 .siderStyle :global(.ant-menu),
 .siderStyle :global(.ant-menu-dark) {
     background: transparent !important;

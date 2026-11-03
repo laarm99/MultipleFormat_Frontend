@@ -199,9 +199,29 @@ body {
 }
 
 .loginLogo {
-  width: 400px;
+  width: 320px;
+  max-width: 100%;
   height: auto;
   margin-bottom: 20px;
+}
+
+.loginBrand {
+  position: absolute;
+  top: 12px;
+  left: 24px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+.loginBrand img {
+  height: 36px;
+  width: auto;
+  display: block;
 }
 
 .loginLanguage {

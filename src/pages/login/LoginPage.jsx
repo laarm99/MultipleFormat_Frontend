@@ -9,7 +9,8 @@ import { AuthContext } from "./AuthProvider";
 import AppButton from "../../components/common/buttons";
 import LanguageSelector from "../../components/LanguajeSelector/LanguajeSelector";
 import styles from "./styles/LoginPage.module.css";
-import appLogo from "../../assets/img/logo.png";
+import appLogo from "../../assets/img/logo-horizontal.png";
+import brandLogo from "../../assets/img/prodriven-logo.png";
 
 function getLoginErrorMessage(error, t) {
   const status = error.response?.status;
@@ -107,6 +108,9 @@ export default function LoginPage() {
 
   return (
     <div className={styles.mainBackground}>
+      <div className={styles.loginBrand}>
+        <img src={brandLogo} alt="ProDriven Global Brands" />
+      </div>
       <div className={styles.loginLanguage}>
         <LanguageSelector />
       </div>
